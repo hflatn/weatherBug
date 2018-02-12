@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import "./Footer.css"
 export default class Footer extends Component {
     constructor() {
         super()
@@ -12,10 +12,9 @@ export default class Footer extends Component {
     
     render() {
 
-
         return (
-            <div className='body'>
-               
+            <div className = "cute" >
+           
             </div>
 
         )

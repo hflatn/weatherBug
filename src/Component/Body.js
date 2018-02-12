@@ -47,6 +47,12 @@ export default class Body extends Component {
             )
     }
 
+    saveToBackend() {
+        axios.post(`http://localhost:3030/api/hello`, {hey:"heyyyy"})
+        .then((res) => console.log(res)).catch((err) => console.log(err))
+    }
+    
+
 
     handleCity(e) {
         var cityName = e.target.value
@@ -56,17 +62,18 @@ export default class Body extends Component {
 
     handleZip(e) {
         var zip = e.target.value
-        this.setState({ zip })
+        this.setState({ zip })  
         //console.log(e.target.value)
     }
 
 
     render() {
 
-       var x =  ":" + this.state.placeToDisplay.map ( place => place.main.temp)
+       var x = this.state.cityName + ":" + this.state.placeToDisplay.map ( place => place.main.temp) + "kelvin"
+       this.saveToBackend()
         console.log(this.state)
         return (
-            <div className='body'>
+            <div className='text' >
                 <button onClick={() => { this.viewLocation() } }> View Weather </button>
                 <input onChange={(e) => this.handleZip(e)} />
                 <input onChange={(e) => this.handleCity(e)} />
